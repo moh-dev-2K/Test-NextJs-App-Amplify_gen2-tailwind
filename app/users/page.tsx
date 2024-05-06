@@ -1,10 +1,8 @@
 "use client";
 
-import { Pencil, Search, Trash } from "lucide-react";
-import { useDebugValue, useEffect, useState } from "react";
+import { Search } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import _ from "lodash";
 import Pagination from "@/components/ui/table/pagination/pagination";
 import UserColumns, { UserColumnsProps } from "./columns";
@@ -22,6 +20,7 @@ const UserList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState("desc");
+  const router = useRouter();
 
   useEffect(() => {
     pagination();
@@ -156,6 +155,9 @@ const UserList = () => {
             {users &&
               users!.map((user: any) => (
                 <tr
+                  onDoubleClick={() => {
+                    router.push("/dashboard");
+                  }}
                   key={user.id}
                   className="hover:bg-[#F4F5F7] border-b border-[#f5f5f5]">
                   <td className="px-2 py-4">{user.name}</td>
