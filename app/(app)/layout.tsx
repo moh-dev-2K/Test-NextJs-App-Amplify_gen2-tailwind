@@ -5,7 +5,7 @@ import AuthListener from "@/context/AuthListener";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <AuthListener>
+    // <AuthListener>
       <div className="w-full h-screen bg-[#ffffff] flex flex-col">
         <div className="h-fit">
           <Header />
@@ -19,7 +19,7 @@ function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       </div>
-    </AuthListener>
+    // </AuthListener>
   );
 }
 
