@@ -38,12 +38,13 @@ const App = () => {
     } catch (err) {
       console.error(err);
       console.log("Not signed in");
+      signInWithRedirect()
     }
   };
 
   return (
     <div className="App">
-      <button onClick={() => signInWithRedirect()}>Open Hosted UI</button>
+      {/* <button onClick={() => signInWithRedirect()}>Open Hosted UI</button> */}
     </div>
   );
 };
