@@ -27,12 +27,12 @@ const AuthListener = ({ children }: { children: React.ReactNode }) => {
       default:
         break;
     }
-    setIsLoading(false);
   };
 
   const getUser = async () => {
     try {
       const currentUser = await getCurrentUser();
+      setIsLoading(false);
       console.log(currentUser);
     } catch (error) {
       console.error(error);
