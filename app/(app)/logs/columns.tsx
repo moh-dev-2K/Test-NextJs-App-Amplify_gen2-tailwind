@@ -1,11 +1,12 @@
+"use client";
+
 import React from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 
-const userColumns = [
-  { field: "name", label: "Name", sortable: true },
-  { field: "email", label: "Email", sortable: true },
-  { field: "phoneNumber", label: "Phone Number", sortable: true },
-  { field: "profession", label: "Profession", sortable: true },
+const errorLogColumns = [
+  { field: "timestamp", label: "Timestamp", sortable: true },
+  { field: "errorMessage", label: "Error Message", sortable: true },
+  { field: "errorType", label: "Error Type", sortable: true },
 ];
 
 export interface UserColumnsProps {
@@ -14,7 +15,7 @@ export interface UserColumnsProps {
   sortOrder: string;
 }
 
-const UserColumns: React.FC<UserColumnsProps> = ({
+const ErrorLogColumns: React.FC<UserColumnsProps> = ({
   sortBy,
   sortOrder,
   handleSortByAndOrder,
@@ -36,7 +37,7 @@ const UserColumns: React.FC<UserColumnsProps> = ({
   };
   return (
     <tr>
-      {userColumns.map((column) => {
+      {errorLogColumns.map((column) => {
         return (
           <th
             onClick={() =>
@@ -57,4 +58,4 @@ const UserColumns: React.FC<UserColumnsProps> = ({
   );
 };
 
-export default UserColumns;
+export default ErrorLogColumns;
