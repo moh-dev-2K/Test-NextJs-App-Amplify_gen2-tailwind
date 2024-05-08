@@ -11,9 +11,9 @@ import { errorLogsData } from "@/data/errorLogs";
 const entriesPerPageOptions = [5, 10, 15];
 
 function Logs() {
-  const [errorLogs, setUsers] = useState<any>(errorLogsData.slice(0, 5));
+  const [errorLogs, setErrorLogs] = useState<any>(errorLogsData.slice(0, 5));
   const [currentPage, setCurrentPage] = useState(1);
-  const [errorLogsLimit, setUsersLimit] = useState(5);
+  const [errorLogsLimit, setErrorLogsLimit] = useState(5);
   const [totalPages, setTotalPages] = useState<number>(6);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("createdAt");
@@ -32,16 +32,16 @@ function Logs() {
     const start =
       (currentPage - 1) * Math.min(errorLogsData.length, errorLogsLimit);
     const end = start + errorLogsLimit;
-    setUsers(errorLogsData.slice(start, end));
+    setErrorLogs(errorLogsData.slice(start, end));
   };
 
   const handleEntriesPerPageChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const errorLogsLimit = parseInt(event.target.value);
-    setUsersLimit(errorLogsLimit);
-    const updatedUsers = errorLogsData.slice(0, errorLogsLimit);
-    setUsers(updatedUsers);
+    setErrorLogsLimit(errorLogsLimit);
+    const updatedErrorLogs = errorLogsData.slice(0, errorLogsLimit);
+    setErrorLogs(updatedErrorLogs);
     const totalPages = Math.ceil(errorLogsData.length! / errorLogsLimit);
     setTotalPages(totalPages);
     setCurrentPage(1);
@@ -60,9 +60,9 @@ function Logs() {
   };
 
   const handleSorting = () => {
-    let sortedUsers = [...errorLogsData];
+    let sortedErrorLogs = [...errorLogsData];
     if (sortBy === "errorMessage" || sortBy === "errorType") {
-      sortedUsers.sort((a, b) => {
+      sortedErrorLogs.sort((a, b) => {
         if (sortOrder === "asc") {
           return a[sortBy].localeCompare(b[sortBy]);
         } else {
@@ -70,7 +70,7 @@ function Logs() {
         }
       });
     } else if (sortBy === "timestamp") {
-      sortedUsers.sort((a, b) => {
+      sortedErrorLogs.sort((a, b) => {
         if (sortOrder === "asc") {
           return (
             new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
@@ -82,7 +82,7 @@ function Logs() {
         }
       });
     }
-    setUsers(sortedUsers.slice(0, errorLogsLimit));
+    setErrorLogs(sortedErrorLogs.slice(0, errorLogsLimit));
   };
 
   const handleSortByAndOrder = (newSortBy: string) => {
@@ -124,17 +124,17 @@ function Logs() {
               setSearchQuery((value) => e.target.value);
               const updatedUsers = errorLogsData.filter(
                 (errorLog: any) =>
-                  errorLog.name
+                  errorLog.errorMessage
                     .toLowerCase()
                     .includes(searchQuery.toLowerCase()) ||
-                  errorLog.email
+                  errorLog.errorType
                     .toLowerCase()
                     .includes(searchQuery.toLowerCase()) ||
-                  errorLog.profession
+                  errorLog.timestamp
                     .toLowerCase()
                     .includes(searchQuery.toLowerCase())
               );
-              setUsers(updatedUsers.slice(0, errorLogsLimit));
+              setErrorLogs(updatedUsers.slice(0, errorLogsLimit));
             }}
           />
         </div>
