@@ -8,7 +8,7 @@ const App = () => {
     setTimeout(() => {
       redirect("/dashboard");
     }, 0);
-  }, []);
+  });
   return <div className="App"></div>;
 };
 
