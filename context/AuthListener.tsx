@@ -39,7 +39,7 @@ const AuthListener = ({ children }: { children: React.ReactNode }) => {
       } catch (error) {
         console.error(error);
         console.log("Not signed in");
-        // signInWithRedirect();
+        signInWithRedirect();
       }
     };
 
