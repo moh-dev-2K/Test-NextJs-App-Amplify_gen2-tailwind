@@ -35,8 +35,8 @@ const App = () => {
       const currentUser = await getCurrentUser();
       router.push("/users");
       console.log(currentUser);
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error(err);
       console.log("Not signed in");
     }
   };
