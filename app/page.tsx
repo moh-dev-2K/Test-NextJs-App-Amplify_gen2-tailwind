@@ -5,11 +5,12 @@ import { Hub } from "aws-amplify/utils";
 import { signInWithRedirect, getCurrentUser } from "aws-amplify/auth";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
+import { useRouter } from "next/navigation";
 
 Amplify.configure(outputs);
 
-
 const App = () => {
+  const router = useRouter();
   useEffect(() => {
     const unsubscribe = Hub.listen("auth", ({ payload }) => {
       switch (payload.event) {
@@ -32,6 +33,7 @@ const App = () => {
   const getUser = async () => {
     try {
       const currentUser = await getCurrentUser();
+      router.push("/users");
       console.log(currentUser);
     } catch (error) {
       console.error(error);
@@ -42,7 +44,6 @@ const App = () => {
   return (
     <div className="App">
       <button onClick={() => signInWithRedirect()}>Open Hosted UI</button>
-      {/* <button onClick={() => signOut()}>Sign Out</button> */}
     </div>
   );
 };
