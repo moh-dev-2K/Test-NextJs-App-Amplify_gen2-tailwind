@@ -6,7 +6,6 @@ import { useEffect } from "react";
 const App = () => {
   const router = useRouter();
   useEffect(() => {
-    console.log("useEffect");
     router.push("/dashboard");
   });
   return <div className="App"></div>;

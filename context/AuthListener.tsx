@@ -33,7 +33,7 @@ const AuthListener = ({ children }: { children: React.ReactNode }) => {
     try {
       const currentUser = await getCurrentUser();
       setIsLoading(false);
-      console.log(currentUser);
+      console.log("currentUser", currentUser);
     } catch (error) {
       console.error(error);
       console.log("Not signed in");
