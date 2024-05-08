@@ -1,13 +1,14 @@
 "use client";
 
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 const App = () => {
+  const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
       console.log("inside timeout");
-      redirect("/dashboard");
+      router.push("/dashboard");
     }, 0);
     console.log("useEffect");
   });
