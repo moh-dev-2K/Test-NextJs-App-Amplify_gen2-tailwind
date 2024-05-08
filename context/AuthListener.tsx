@@ -34,7 +34,6 @@ const AuthListener = ({ children }: { children: React.ReactNode }) => {
     const getUser = async () => {
       try {
         const currentUser = await getCurrentUser();
-        router.push("/dashboard");
         console.log(currentUser);
       } catch (error) {
         console.error(error);
