@@ -6,11 +6,7 @@ import { useEffect } from "react";
 const App = () => {
   const router = useRouter();
   useEffect(() => {
-    setTimeout(() => {
-      console.log("inside timeout");
-      router.push("/dashboard");
-    }, 0);
-    console.log("useEffect");
+    router.push("/dashboard");
   });
   return <div className="App"></div>;
 };

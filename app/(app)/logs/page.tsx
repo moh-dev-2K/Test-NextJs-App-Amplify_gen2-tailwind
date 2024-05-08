@@ -159,9 +159,6 @@ function Logs() {
             {errorLogs &&
               errorLogs!.map((errorLog: any) => (
                 <tr
-                  onDoubleClick={() => {
-                    router.push("/dashboard");
-                  }}
                   key={errorLog.id}
                   className="hover:bg-[#F4F5F7] border-b border-[#f5f5f5]">
                   <td className="px-2 py-4">{errorLog.timestamp}</td>
