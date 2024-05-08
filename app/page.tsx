@@ -5,8 +5,10 @@ import { useEffect } from "react";
 
 const App = () => {
   useEffect(() => {
-    redirect("/dashboard");
-  });
+    setTimeout(() => {
+      redirect("/dashboard");
+    }, 0);
+  }, []);
   return <div className="App"></div>;
 };
 
