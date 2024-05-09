@@ -7,7 +7,7 @@ export const errorLogsData = [
   },
   {
     id: 2,
-    timestamp: "2024-05-07T15:45:00",
+    timestamp: "2023-05-07T15:45:00",
     errorMessage: "TypeError: Cannot read property 'name' of undefined",
     errorType: "Runtime Error",
   },
@@ -19,7 +19,7 @@ export const errorLogsData = [
   },
   {
     id: 4,
-    timestamp: "2024-05-05T14:10:00",
+    timestamp: "2022-05-05T14:10:00",
     errorMessage: "TypeError: Cannot read property 'length' of null",
     errorType: "Runtime Error",
   },
