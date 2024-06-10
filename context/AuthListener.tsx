@@ -9,6 +9,13 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 
 Amplify.configure(outputs);
+const existingConfig = Amplify.getConfig();
+Amplify.configure({
+  ...existingConfig,
+  API: {
+    REST: outputs.custom.API
+  },
+});
 
 const AuthListener = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
